@@ -23,7 +23,7 @@ RUN update-alternatives --install /usr/bin/python3 python3 /usr/bin/python3.12 1
 COPY . /app
 
 # 安装Python依赖
-RUN pip install --no-cache-dir -r requirements.txt
+RUN pip install --break-system-packages --no-cache-dir -r requirements.txt
 
 # 设置环境变量
 ENV CLOUDFLARE_ACCOUNT_ID=""
