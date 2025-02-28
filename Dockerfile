@@ -30,9 +30,7 @@ ENV CLOUDFLARE_ACCOUNT_ID=""
 ENV CLOUDFLARE_API_TOKEN=""
 ENV MODELSCOPE_API_TOKEN=""
 ENV DASHSCOPE_API_KEY=""
+ENV PORT=5000
 
-# 暴露端口
-EXPOSE 5000
-
-# 使用Gunicorn运行Flask应用
-CMD ["gunicorn", "--bind", "0.0.0.0:5000", "app:app"]
+# 使用Gunicorn运行Flask应用，动态绑定PORT环境变量
+CMD ["sh", "-c", "gunicorn --bind 0.0.0.0:${PORT} app:app"]
