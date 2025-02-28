@@ -127,6 +127,19 @@ def generate_image():
     except Exception as e:
         return jsonify({"error": f"Image generation failed: {str(e)}"}), 500
 
+@app.route("/models", methods=["GET"])
+def list_models():
+    """
+    返回models_config.json的内容，列出所有支持的供应商、模型及其任务能力。
+
+    Returns:
+        JSON: models_config.json的内容。
+    """
+    try:
+        # 直接返回加载的配置
+        return jsonify(MODELS_CONFIG), 200
+    except Exception as e:
+        return jsonify({"error": f"Failed to load models configuration: {str(e)}"}), 500
 
 if __name__ == "__main__":
     app.run(host="0.0.0.0", port=5000, debug=False)
