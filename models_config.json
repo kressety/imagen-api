@@ -1,0 +1,27 @@
+{
+  "cloudflare": {
+    "@cf/runwayml/stable-diffusion-v1-5-img2img": ["image_to_image"],
+    "@cf/lykon/dreamshaper-8-lcm": ["text_to_image"],
+    "@cf/black-forest-labs/flux-1-schnell": ["text_to_image"],
+    "@cf/bytedance/stable-diffusion-xl-lightning": ["text_to_image"],
+    "@cf/stabilityai/stable-diffusion-xl-base-1.0": ["text_to_image"],
+    "@cf/runwayml/stable-diffusion-v1-5-inpainting": ["image_to_image"]
+  },
+  "aliyun": {
+    "wanx2.1-t2i-turbo": ["text_to_image"],
+    "wanx2.1-t2i-plus": ["text_to_image"],
+    "flux-schnell": ["text_to_image"],
+    "flux-dev": ["text_to_image"],
+    "flux-merged": ["text_to_image"],
+    "wanx2.0-t2i-turbo": ["text_to_image"],
+    "stable-diffusion-xl": ["text_to_image"],
+    "stable-diffusion-v1.5": ["text_to_image"],
+    "stable-diffusion-3.5-large": ["text_to_image"],
+    "stable-diffusion-3.5-large-turbo": ["text_to_image"],
+    "wanx-v1-0521": ["text_to_image", "image_to_image"],
+    "wanx-v1": ["text_to_image", "image_to_image"]
+  },
+  "modelscope": {
+    "*": ["text_to_image"]
+  }
+}
