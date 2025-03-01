@@ -3,12 +3,14 @@ import os
 from io import BytesIO
 
 from flask import Flask, request, jsonify, send_file
+from flask_cors import CORS  # Add this import
 
 from providers.aliyun import AliyunFactory
 from providers.cloudflare import CloudflareFactory
 from providers.modelscope import ModelScopeFactory
 
 app = Flask(__name__)
+CORS(app, resources={r"/*": {"origins": "*"}})  # Enable CORS for all routes with wildcard origin
 
 # 加载配置文件
 CONFIG_PATH = "models_config.json"
@@ -127,6 +129,7 @@ def generate_image():
     except Exception as e:
         return jsonify({"error": f"Image generation failed: {str(e)}"}), 500
 
+
 @app.route("/models", methods=["GET"])
 def list_models():
     """
@@ -141,5 +144,6 @@ def list_models():
     except Exception as e:
         return jsonify({"error": f"Failed to load models configuration: {str(e)}"}), 500
 
+
 if __name__ == "__main__":
-    app.run(host="0.0.0.0", port=5000, debug=False)
+    app.run()
